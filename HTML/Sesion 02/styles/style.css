@@ -1,0 +1,20 @@
+
+.topbar{
+    color: brown;
+}
+
+#sobreNosotro{
+    color: aqua;
+    margin: 20px;
+    width: 300px;
+    height: 200px;
+    border: solid 3px black;
+    padding: 10px;
+    background-color: blueviolet;
+    border-radius: 15px;
+
+}
+
+#gato1{
+    border-radius: 50%;
+}

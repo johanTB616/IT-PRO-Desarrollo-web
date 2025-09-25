@@ -1,0 +1,60 @@
+.cuadro{
+    width: 50px;
+    height: 50px;
+    background: blueviolet;
+    margin: 10px;
+    color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#padre1 + div{
+    background: blue;
+}
+
+#hijo1 + div{
+    background: greenyellow;
+}
+/**
+Este nos cambiara solo a la ultima clase hermano ya que pues 
+el .cuadro es de mayor jerarquia
+*/
+#padre1 ~div,h2{
+    color: blueviolet;
+}
+/*
+Este es para elementos descendientes, este es solo a sus hijos directos
+*/
+#padre1 > div{
+    background-color: aqua;
+}
+/*
+Este aplica el cambio para TODOS sus elementos descendientes
+*/
+
+
+
+.abuelo div{
+    border-radius: 50%;
+}
+#padre2 >div > section{
+    color: black
+}
+
+#padre2 >div > div{
+    color: yellow
+}
+/*
+#padre2 ~ div,section{
+    color: chocolate;
+}
+#padre2 ~ div,div{
+    color: green;
+}
+section+p{
+    color: greenyellow;
+}
+div+div+p{
+    color: blue;
+}*/
