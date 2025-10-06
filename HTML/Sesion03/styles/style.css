@@ -1,11 +1,23 @@
-h1{
-    color: blue;
+#title{
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
 }
-.linkMenu{
-    color: black;
-    font-size: 12px;
-    font-weight: bold;
-    text-decoration: none;
+#title::before{
+    content: "🤖";
+}
+#title::after{
+    content: "🌍";
+}
+#inicio > p::first-letter{
+    font-size: 30px;
+    color: blueviolet;
+}
+#inicio > p::first-line{
+    background: yellow;
+}
+p::selection{
+    background: blue;
+    color: aliceblue;
 }
 ul > li > .linkMenu:visited{
     color: brown;
@@ -26,10 +38,27 @@ ul > li > .linkMenu:active{
 
 
 #btn-enviar:hover {
-    background-color: #004800b3; 
+    background-color: #004800b3;
+    cursor: crosshair; 
 }
 
 #btn-enviar:active {
     background-color: #0b4; 
 }
 
+#flex{
+    display: grid;
+    width: 500px;
+    height: 500px;
+    border: solid 1px black;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    gap: 10px;
+}
+.cuadro{
+    height: 25px;
+    width: 25px;
+    background-color: red;
+    border-radius: 50%;
+}
