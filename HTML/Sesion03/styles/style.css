@@ -1,64 +1,100 @@
-#title{
+/* Título principal con íconos */
+#title {
     font-size: 24px;
     font-family: Arial, Helvetica, sans-serif;
 }
-#title::before{
-    content: "🤖";
+
+#title::before {
+    content: "🤖 ";
 }
-#title::after{
-    content: "🌍";
+
+#title::after {
+    content: " 🌍";
 }
-#inicio > p::first-letter{
+
+/* Primeras letras y líneas de párrafos dentro de #inicio */
+#inicio > p::first-letter {
     font-size: 30px;
     color: blueviolet;
 }
-#inicio > p::first-line{
+
+#inicio > p::first-line {
     background: yellow;
 }
-p::selection{
+
+/* Selección de texto */
+p::selection {
     background: blue;
     color: aliceblue;
 }
-ul > li > .linkMenu:visited{
+
+/* Links del menú */
+ul > li > .linkMenu:visited {
     color: brown;
 }
 
-ul > li > .linkMenu:active{
+ul > li > .linkMenu:active {
     color: aqua;
-
 }
+
+/* Botón de envío */
 #btn-enviar {
-    background-color: #007BFF; 
+    background-color: #007BFF; /* Azul */
     color: white; 
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease; /* Suaviza los cambios */
 }
 
-
+/* Hover: pasa el mouse */
 #btn-enviar:hover {
-    background-color: #004800b3;
-    cursor: crosshair; 
+    background-color: #0048b3; /* Azul más oscuro */
+    cursor: pointer; /* crosshair se usa más para mapas o selección */
 }
 
+/* Active: cuando se da clic */
 #btn-enviar:active {
-    background-color: #0b4; 
+    background-color: #00bb44; /* Verde brillante */
 }
 
-#flex{
+/* Contenedor flexible (grid) */
+#flex {
     display: grid;
     width: 500px;
     height: 500px;
-    border: solid 1px black;
+    border: 1px solid black;
     justify-content: center;
     align-items: center;
-    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    grid-template-columns: 1fr 2fr 1fr;
     gap: 10px;
 }
-.cuadro{
-    height: 25px;
-    width: 25px;
+
+/* Cuadros dentro del grid */
+.cuadro {
     background-color: red;
-    border-radius: 50%;
+}
+
+/* Sección de contacto centrada */
+#contacto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative; /* Necesario si vas a posicionar el label dentro */
+}
+
+/* Label del contacto */
+#contact-label {
+    position: absolute;
+    left: 13px;
+    top: 15px;
+    background-color: white;
+    padding: 0px 5px;
+    font-size: 12px;
+    transition: 
+    trk
+    ;
+
 }

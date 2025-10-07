@@ -1,0 +1,16 @@
+.container{
+    display: flex;
+}
+
+.cuadro{
+    width: 50px;
+    height: 50px;
+    background: red;
+    margin: 10px;
+
+}
+
+#dos{
+    position: absolute;
+    top: 50px;
+}
