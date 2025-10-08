@@ -6,7 +6,7 @@ con la dimensión más pequeña
 /* Estilos generales */
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .seccion {
@@ -20,7 +20,7 @@ body {
 }
 
 #title::before {
-    content: "😸";
+    content: "🥸";
 }
 
 #title::after {
@@ -74,7 +74,7 @@ p::selection {
 #button {
     color: azure;
     background: blue;
-    border-radius: 25%;
+    border-radius: 15%;
     border: 0;
     font-family: monospace;
     padding: 8px 16px;
@@ -117,7 +117,20 @@ p::selection {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    box-sizing: border-box;
+    outline: none;
+}
+#input-contact:focus{
+    border: solid 1px purple;
+}
+
+#input-contact:focus + #contact-label{
+    transform: translateY(-15px);
+    color: blueviolet;
+}
+
+#input-contact:not(:placeholder-shown) + #contact-label{
+    transform: translateY(-15px);
+    color: palevioletred;
 }
 
 #contact-label {
