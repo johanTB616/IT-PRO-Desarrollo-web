@@ -6,7 +6,16 @@ con la dimensión más pequeña
 /* Estilos generales */
 body {
     margin: 0;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.5s ease, color 0.5s ease;
+    background-color: white;
+    color: #333;
+}
+
+/* Modo oscuro */
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
 }
 
 .seccion {
@@ -20,11 +29,11 @@ body {
 }
 
 #title::before {
-    content: "🥸";
+    content: "☀️";
 }
 
 #title::after {
-    content: "🤓";
+    content: "🌙";
 }
 
 /* Navegación */
@@ -42,6 +51,11 @@ nav ul {
     font-weight: bold;
     text-decoration: none;
     padding: 5px 10px;
+    transition: color 0.3s ease;
+}
+
+body.dark-mode .link-menu {
+    color: #e0e0e0;
 }
 
 .link-menu:visited {
@@ -62,23 +76,40 @@ nav ul {
     color: blueviolet;
 }
 
+body.dark-mode #inicio > p::first-letter {
+    color: #a78bfa;
+}
+
 #inicio > p::first-line {
     background: yellow;
+    color: black;
+}
+
+body.dark-mode #inicio > p::first-line {
+    background: #6366f1;
+    color: white;
 }
 
 p::selection {
     background: rgb(183, 183, 240);
+    color: black;
+}
+
+body.dark-mode p::selection {
+    background: #4f46e5;
+    color: white;
 }
 
 /* Botón */
 #button {
     color: azure;
     background: blue;
-    border-radius: 15%;
+    border-radius: 25%;
     border: 0;
     font-family: monospace;
     padding: 8px 16px;
     margin-top: 10px;
+    transition: background-color 0.3s ease;
 }
 
 #button:hover {
@@ -88,6 +119,14 @@ p::selection {
 
 #button:active {
     background: brown;
+}
+
+body.dark-mode #button {
+    background: #2563eb;
+}
+
+body.dark-mode #button:hover {
+    background: #3b82f6;
 }
 
 /* Formulario de contacto */
@@ -117,20 +156,16 @@ p::selection {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    outline: none;
-}
-#input-contact:focus{
-    border: solid 1px purple;
-}
-
-#input-contact:focus + #contact-label{
-    transform: translateY(-15px);
-    color: blueviolet;
+    box-sizing: border-box;
+    background-color: white;
+    color: #333;
+    transition: all 0.3s ease;
 }
 
-#input-contact:not(:placeholder-shown) + #contact-label{
-    transform: translateY(-15px);
-    color: palevioletred;
+body.dark-mode #input-contact {
+    background-color: #2d2d2d;
+    border-color: #555;
+    color: #e0e0e0;
 }
 
 #contact-label {
@@ -141,14 +176,25 @@ p::selection {
     background: white;
     padding: 0 5px;
     font-size: 12px;
-    transition: transform 0.3s ease, color 0.3s ease;
+    transition: all 0.3s ease;
     pointer-events: none;
+    color: #666;
+}
+
+body.dark-mode #contact-label {
+    background: #2d2d2d;
+    color: #aaa;
 }
 
 #input-contact:focus + #contact-label,
 #input-contact:not(:placeholder-shown) + #contact-label {
     transform: translateY(-170%) scale(0.9);
     color: blue;
+}
+
+body.dark-mode #input-contact:focus + #contact-label,
+body.dark-mode #input-contact:not(:placeholder-shown) + #contact-label {
+    color: #a78bfa;
 }
 
 /* Container de cuadros */
@@ -163,10 +209,90 @@ p::selection {
     height: 30px;
     width: 30px;
     background: brown;
+    transition: background-color 0.3s ease;
+}
+
+body.dark-mode .cuadro {
+    background: #7f1d1d;
 }
 
 #dos {
     position: relative;
     top: 50px;
     left: 70px;
+}
+
+/* CSS Del toggle de modo oscuro/claro */
+#toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 60px;
+    height: 30px;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #ffd700, #ff8c00);
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    transition: all 0.5s ease;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+#toggle:hover {
+    transform: scale(1.05);
+}
+
+#toggle.active {
+    background: linear-gradient(135deg, #4b5563, #1f2937);
+}
+
+#circle {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: white;
+    margin-left: 2px;
+    transition: all 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#toggle.active > #circle {
+    transform: translateX(30px);
+    background: #374151;
+}
+
+/* Boton formulario */
+.boton-formulario {
+    margin-top: 20px;
+}
+
+.btn-ir-formulario {
+    display: inline-block;
+    background-color: #630b0b;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+body.dark-mode .btn-ir-formulario {
+    background-color: #dc2626;
+}
+
+.btn-ir-formulario:hover {
+    background-color: #5f1b12;
+    transform: scale(1.02);
+}
+
+body.dark-mode .btn-ir-formulario:hover {
+    background-color: #ef4444;
 }

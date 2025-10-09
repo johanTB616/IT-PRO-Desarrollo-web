@@ -7,6 +7,10 @@
     <link rel="stylesheet" href="./styles/styleFormulario.css">
 </head>
 <body>
+    <button id="toggle">
+        <div id="circle"></div>
+    </button>
+    
     <header class="seccion">
         <h1>Formulario de Usuarios</h1>
         <nav>
@@ -30,7 +34,7 @@
                     <input type="text" id="apellidos" name="apellidos" required>
                 </div>
 
-                                <div class="input-group">
+                <div class="input-group">
                     <label for="correo">Correo electrónico:</label>
                     <input type="email" id="correo" name="correo" required>
                 </div>
@@ -39,10 +43,12 @@
                     <label for="password">Contraseña:</label>
                     <input type="password" id="password" name="password" required>
                 </div>
-                                <div class="input-group">
+                
+                <div class="input-group">
                     <label for="telefono">Telefono:</label>
                     <input type="number" id="telefono" name="telefono" required>
                 </div>
+                
                 <div class="input-group">
                     <label for="genero">Género:</label>
                     <select id="genero" name="genero">
@@ -61,10 +67,11 @@
                 <button type="submit">Registrar</button>
             </form>
             <div class="volver-inicio">
-                <a href="index2.html" class="btn-volver">Volver a la Página Principal</a>
+                <a href="index.html" class="btn-volver">Volver a la Página Principal</a>
             </div>
         </section>
     </main>
+
+    <script src="./js/dark-mode.js"></script>
 </body>
 </html>
-
