@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Personal - Minecraft Style</title>
+  <link rel="stylesheet" href="./styles/style.css">
+</head>
+<body>
+  <header>
+    <h1> Panel Personal</h1>
+    <div class="lever-container">
+      <img id="lever" src="./images/lever_off.png" alt="Palanca Minecraft">
+    </div>
+  </header>
+
+  <main>
+    <!-- SECCIÓN DE RELOJ -->
+    <section class="panel" id="relojSection">
+      <h2>Reloj en vivo</h2>
+      <p id="reloj"></p>
+    </section>
+
+    <!-- SECCIÓN DE CLIMA -->
+    <section class="panel" id="climaSection">
+      <h2>🌤️ Verificador del clima</h2>
+      <input type="text" id="ciudadClima" placeholder="Escribe una ciudad">
+      <button id="buscarClima">Buscar clima</button>
+      <div id="climaInfo">Introduce una ciudad para ver el clima.</div>
+    </section>
+
+    <!-- SECCIÓN DE AGENDA -->
+    <section class="panel" id="agendaSection">
+      <h2>🗓️ Agenda personal</h2>
+      <form id="eventoForm">
+        <input type="date" id="fecha" required>
+        <input type="time" id="hora" required>
+        <input type="text" id="descripcion" placeholder="Descripción" required>
+        <button type="submit">Agregar</button>
+      </form>
+      <ul id="listaEventos"></ul>
+    </section>
+
+    <!-- SECCIÓN DE NOTAS -->
+    <section class="panel" id="notasSection">
+      <h2>📋 Notas Rápidas</h2>
+      <textarea id="notaTexto" placeholder="Escribe algo..."></textarea>
+      <button id="guardarNota">Guardar nota</button>
+      <div id="notaGuardada"></div>
+    </section>
+
+    <!-- SECCIÓN DE FRASES -->
+    <section class="panel" id="frasesSection">
+      <h2>Frase motivacional</h2>
+      <p id="fraseTexto">Haz clic para inspirarte</p>
+      <button id="nuevaFrase">Nueva frase</button>
+    </section>
+  </main>
+
+  <footer>
+    <p></p>
+  </footer>
+
+  <script src="./app/script.js"></script>
+</body>
+</html>
