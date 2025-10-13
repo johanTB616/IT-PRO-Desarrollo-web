@@ -1,121 +1,264 @@
-/* --- General --- */
-body {
-  font-family: "Trebuchet MS", sans-serif;
-  background-color: #d2d2d2;
-  color: #222;
-  margin: 0;
-  padding: 0;
-  transition: background-color 0.4s, color 0.4s;
+/* ==== VARIABLES DE DISEÑO RPG ==== */
+:root {
+  /* Colores Oscuros/Arcanos */
+  --color-dark-bg: #1e1e2f; 
+  --color-dark-surface: #2c2c44;
+  --color-text-light: #f0f0f0;
+  --color-accent-blue: #00c3ff; /* Neon Azul */
+  --color-accent-blue-dark: #0077ff; 
+  --color-accent-glow: 0 0 8px #00c3ff, 0 0 15px rgba(0, 195, 255, 0.4);
+
+  /* Colores Claros/Fantasía Clásica (Modo Light) */
+  --color-light-bg: #fefff3; /* Papiro */
+  --color-light-surface: #ffffff;
+  --color-text-dark: #3a3a3a;
+  --color-accent-gold: #c39a00; /* Oro Viejo */
+  --color-accent-gold-dark: #8f6c00;
+  --color-accent-light-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  /* Fuente RPG */
+  --font-rpg: "Cinzel", serif; 
 }
 
-header {
-  background-color: #88c8f0;
-  padding: 15px 30px;
+/* ==== ESTILO GLOBAL ==== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* Estilos RPG Oscuro (Por Defecto) */
+  background-color: var(--color-dark-bg);
+  color: var(--color-text-light);
+  font-family: var(--font-rpg);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  min-height: 100vh;
+}
+
+/* Títulos con estilo RPG */
+h1, h2, h3 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+}
+
+/* ==== MODO CLARO (Fantasía Clásica) ==== */
+body.light { 
+  background-color: var(--color-light-bg);
+  color: var(--color-text-dark);
+}
+
+body.light .navbar {
+  background-color: var(--color-light-surface);
+  border-bottom-color: var(--color-accent-gold-dark);
+  box-shadow: var(--color-accent-light-shadow);
+}
+
+body.light .menu a:hover,
+body.light .menu a.active {
+    color: var(--color-accent-gold-dark);
+}
+
+body.light .card,
+body.light li {
+    background-color: var(--color-light-surface);
+    border-color: var(--color-accent-gold);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* ==== NAVBAR (Panel de Control) ==== */
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: var(--color-dark-surface);
+  padding: 12px 25px;
+  /* Borde con efecto de Energía Arcana */
+  border-bottom: 3px solid var(--color-accent-blue); 
+  box-shadow: 0 2px 10px rgba(0, 195, 255, 0.2), var(--color-accent-glow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-h1 {
-  margin: 0;
+.brand {
+    display: flex;
+    align-items: center;
 }
 
-main {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
-  padding: 20px;
+.logo {
+    width: 40px; /* Tamaño del GIF */
+    height: 40px;
+    margin-right: 10px;
+    /* Efecto de marco RPG para el GIF */
+    border: 2px solid var(--color-accent-blue); 
+    border-radius: 50%;
+    box-shadow: var(--color-accent-glow);
 }
 
-.panel {
-  background-color: #fff;
-  border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  padding: 20px;
-  width: 280px;
-  text-align: center;
-  transition: background-color 0.4s;
+.brand-title {
+  font-size: 1.5rem;
+  color: var(--color-accent-blue);
+  letter-spacing: 1px;
+  text-shadow: 0 0 5px var(--color-accent-blue);
 }
 
-/* --- Palanca --- */
-.lever-container img {
-  width: 80px;
+.menu {
+    display: flex;
+    gap: 20px;
+}
+
+.menu a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 1rem;
+  padding: 5px 10px;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+}
+
+.menu a:hover,
+.menu a.active {
+  color: var(--color-accent-blue);
+  border-bottom: 2px solid var(--color-accent-blue);
+  text-shadow: 0 0 5px rgba(0, 195, 255, 0.5);
+}
+
+/* ==== PALANCA (Control de Poder) ==== */
+#lever {
+  width: 60px;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  user-select: none;
+  transition: transform 0.2s, filter 0.2s;
 }
 
-.lever-container img:hover {
-  transform: scale(1.05);
+#lever:hover {
+  filter: drop-shadow(0 0 5px gold) brightness(1.2); /* Brillo al pasar el mouse */
 }
 
-/* --- Agenda --- */
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+/* ==== CONTENEDOR PRINCIPAL ==== */
+.main {
+  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-input, button, textarea {
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #aaa;
+.hero h1 {
+  font-size: 2.5rem;
+  color: var(--color-accent-blue);
+  margin-bottom: 20px;
+  text-shadow: var(--color-accent-glow);
 }
 
-button {
-  background-color: #6ab04c;
-  color: white;
-  cursor: pointer;
-  border: none;
+.lead {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto 40px;
+  font-style: italic;
+  opacity: 0.9;
 }
 
-button:hover {
-  background-color: #4e944f;
+.why h2, .quicklinks h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: var(--color-accent-blue);
+    padding-top: 20px;
+    border-top: 1px solid rgba(0, 195, 255, 0.3);
 }
 
-textarea {
-  width: 100%;
-  height: 80px;
-  resize: none;
-}
-
-/* --- Lista de eventos --- */
+/* ==== LISTAS (Artefactos/Registros) ==== */
 ul {
   list-style: none;
   padding: 0;
+  margin-left: 20px;
 }
 
 li {
-  background: #dff9fb;
-  padding: 8px;
-  margin-top: 5px;
+  background-color: var(--color-dark-surface);
+  border: 1px solid var(--color-accent-blue);
+  border-left: 5px solid var(--color-accent-blue); /* Borde de Resaltado */
+  border-radius: 8px;
+  margin: 10px auto;
+  max-width: 800px;
+  padding: 15px;
+  text-align: left;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+li strong {
+    color: var(--color-accent-blue);
+    text-shadow: 0 0 3px rgba(0, 195, 255, 0.3);
+}
+
+/* ==== CARDS (Portales) ==== */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.card {
+    display: block;
+    width: 200px;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-text-light);
+    background-color: var(--color-dark-surface);
+    border: 2px solid var(--color-accent-blue);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 195, 255, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--color-accent-glow);
+    background-color: #383857; /* Ligero cambio al pasar el mouse */
+}
+
+/* Estilo de botones para el modo RPG */
+button,
+input[type="submit"] {
+  background-color: var(--color-accent-blue);
+  border: none;
+  color: #fff;
+  padding: 10px 18px;
+  font-size: 1rem;
+  font-weight: bold;
   border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 0 5px var(--color-accent-blue);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-family: var(--font-rpg);
 }
 
-/* --- Modo oscuro --- */
-body.dark {
-  background-color: #121212;
-  color: #eee;
+button:hover,
+input[type="submit"]:hover {
+  background-color: var(--color-accent-blue-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px var(--color-accent-blue-dark);
 }
 
-body.dark header {
-  background-color: #222;
+/* ==== FOOTER (Sello del Gremio) ==== */
+footer {
+  text-align: center;
+  padding: 20px;
+  color: #888;
+  font-size: 0.9rem;
+  margin-top: 40px;
+  border-top: 1px solid rgba(0, 195, 255, 0.2);
 }
 
-body.dark .panel {
-  background-color: #1f1f1f;
-  box-shadow: 0 0 10px rgba(255,255,255,0.1);
-}
-
-body.dark button {
-  background-color: #27ae60;
-}
-
-body.dark li {
-  background-color: #2f3640;
-}
-
-body.dark footer {
-  background-color: #222;
-  color: #ccc;
+footer a {
+  color: var(--color-accent-blue);
+  text-decoration: none;
 }

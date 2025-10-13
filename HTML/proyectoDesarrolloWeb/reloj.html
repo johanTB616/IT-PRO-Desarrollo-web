@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Reloj - Panel Personal</title>
+  <link rel="stylesheet" href="./styles/style.css">
+     <link rel="icon" type="image/gif" href="icon.gif">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="./images/logo.png" alt="Logo" class="logo">
+      <span class="brand-title">Panel Personal</span>
+    </div>
+
+    <nav class="menu">
+      <a href="index.html">Inicio</a>
+      <a href="reloj.html" class="active">Reloj</a>
+      <a href="agenda.html">Agenda</a>
+      <a href="clima.html">Clima</a>
+      <a href="notas.html">Notas</a>
+    </nav>
+
+    <div class="controls">
+        <img id="lever" class="lever" src="./images/lever_off.png" alt="Palanca">
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="panel center">
+      <h2>⏰ Reloj en vivo</h2>
+      <p id="reloj-large" class="reloj-large">--:--:--</p>
+      <p class="info">Hora local del navegador. Actualiza cada segundo.</p>
+    </section>
+  </main>
+
+  <script src="./app/script.js"></script>
+  <script src="./app/reloj.js"></script>
+</body>
+</html>

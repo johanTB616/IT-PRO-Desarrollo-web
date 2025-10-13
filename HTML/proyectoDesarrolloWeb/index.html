@@ -1,65 +1,60 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Panel Personal - Minecraft Style</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Panel Personal - Diario de Aventuras</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet"> 
   <link rel="stylesheet" href="./styles/style.css">
+  <link rel="icon" type="image/gif" href="icon.gif">
 </head>
-<body>
-  <header>
-    <h1> Panel Personal</h1>
-    <div class="lever-container">
-      <img id="lever" src="./images/lever_off.png" alt="Palanca Minecraft">
+<body class="dark"> <header class="navbar"> 
+    <div class="brand">
+      <img src="./images/icon.gif" alt="Logo de Gremio" class="logo"> 
+      <span class="brand-title">Diario de Aventuras</span>
+    </div>
+
+    <nav class="menu">
+      <a href="index.html" class="active">Punto Base</a> 
+      <a href="reloj.html">Cronómetro Mágico</a>
+      <a href="agenda.html">Libro de Misiones</a>
+      <a href="clima.html">Oráculo del Clima</a>
+      <a href="notas.html">Papiro de Notas</a>
+    </nav>
+
+    <div class="controls">
+      <img id="lever" class="lever" src="./images/lever_off.png" alt="Palanca de Poder"> 
     </div>
   </header>
 
-  <main>
-    <!-- SECCIÓN DE RELOJ -->
-    <section class="panel" id="relojSection">
-      <h2>Reloj en vivo</h2>
-      <p id="reloj"></p>
+  <main class="main">
+    <section class="hero">
+      <h1>Panel de Comando — Herramientas del Aventurero</h1>
+      <p class="lead">Un registro de utilidades arcanas para planificar tu próxima travesía: hora, misiones, clima y notas secretas.</p>
     </section>
 
-    <!-- SECCIÓN DE CLIMA -->
-    <section class="panel" id="climaSection">
-      <h2>🌤️ Verificador del clima</h2>
-      <input type="text" id="ciudadClima" placeholder="Escribe una ciudad">
-      <button id="buscarClima">Buscar clima</button>
-      <div id="climaInfo">Introduce una ciudad para ver el clima.</div>
+    <section class="why">
+      <h2>¿Por qué este proyecto es una Buena Forja?</h2>
+      <ul>
+        <li><strong>Aprendizaje Completo:</strong> Dominio de DOM, Artefactos API (Open-Meteo), Archivos de Saber Local y Estructuras Modulares.</li>
+        <li><strong>Útil en la Práctica:</strong> El registro de Misiones y el Oráculo te preparan para cualquier desafío.</li>
+        <li><strong>Escalable:</strong> Puede ser mejorado con Backend de Sincronización o Avisos Mágicos.</li>
+        <li><strong>Diseño Atractivo:</strong> Interfaz forjada en el acero oscuro con grabados de energía arcana.</li>
+        <li><strong>Accesible:</strong> Navegación rápida y apta para viajeros experimentados.</li>
+      </ul>
+      <p>Empieza a forjar tu equipo: cambia runas, añade íconos o convierte el Libro de Misiones en un Registro de Gremio.</p>
     </section>
 
-    <!-- SECCIÓN DE AGENDA -->
-    <section class="panel" id="agendaSection">
-      <h2>🗓️ Agenda personal</h2>
-      <form id="eventoForm">
-        <input type="date" id="fecha" required>
-        <input type="time" id="hora" required>
-        <input type="text" id="descripcion" placeholder="Descripción" required>
-        <button type="submit">Agregar</button>
-      </form>
-      <ul id="listaEventos"></ul>
-    </section>
-
-    <!-- SECCIÓN DE NOTAS -->
-    <section class="panel" id="notasSection">
-      <h2>📋 Notas Rápidas</h2>
-      <textarea id="notaTexto" placeholder="Escribe algo..."></textarea>
-      <button id="guardarNota">Guardar nota</button>
-      <div id="notaGuardada"></div>
-    </section>
-
-    <!-- SECCIÓN DE FRASES -->
-    <section class="panel" id="frasesSection">
-      <h2>Frase motivacional</h2>
-      <p id="fraseTexto">Haz clic para inspirarte</p>
-      <button id="nuevaFrase">Nueva frase</button>
+    <section class="quicklinks">
+      <h3>Acceso Rápido a Portales</h3>
+      <div class="cards">
+        <a class="card" href="reloj.html">Cronómetro Mágico</a>
+        <a class="card" href="agenda.html">Libro de Misiones</a>
+        <a class="card" href="clima.html">Oráculo del Clima</a>
+        <a class="card" href="notas.html">Papiro de Notas</a>
+      </div>
     </section>
   </main>
-
-  <footer>
-    <p></p>
-  </footer>
 
   <script src="./app/script.js"></script>
 </body>
